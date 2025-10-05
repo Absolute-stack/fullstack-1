@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="flex">
+          <div>
+            <h1>Absolute-Stack</h1>
+          </div>
+          <div>
+            <ul class="flex f-center gap-1">
+              <li>Company</li>
+              <li>Features</li>
+              <li>Resources</li>
+              <li>Docs</li>
+            </ul>
+          </div>
+          <div>
+            <button>Sign Up</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <img src="gradient.png" alt="" />
+    <div class="gradient-overlay"></div>
+    <section class="hero">
+      <div class="container flex f-center">
+        <div class="hero-content flow">
+          <div class="btn-box">
+            <button class="hero-btn">Introducing &wedbar;</button>
+          </div>
+          <div class="hero-text">
+            <h2>Email for developers</h2>
+            <p>
+              The best way to reach humans instead of spam folders. Deliver
+              Transactional and marketing emails at scale.
+            </p>
+          </div>
+          <div class="btn-container">
+            <button class="doc-btn">Documentation ></button>
+            <button class="start-btn">Get Started ></button>
+          </div>
+        </div>
+        <div class="robot">
+          <spline-viewer
+            class="robot-img"
+            url="https://prod.spline.design/lZ1QVMIwtNLZHTZj/scene.splinecode"
+          ></spline-viewer>
+        </div>
+      </div>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>
+
+<script
+  type="module"
+  src="https://unpkg.com/@splinetool/viewer@1.10.74/build/spline-viewer.js"
+></script>
