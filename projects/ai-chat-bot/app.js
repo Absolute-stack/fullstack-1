@@ -9,6 +9,8 @@ const fileUploadBtn = document.querySelector('.file-upload');
 const fileInput = document.getElementById('file-input');
 const emojiBtn = document.querySelector('.emoji-btn');
 const emojiPicker = document.querySelector('emoji-picker');
+const toggleBtn = document.querySelector('.toggle');
+const chatty = document.querySelector('.chatbot-popup');
 let userData;
 
 // Initialize emoji picker as hidden
@@ -179,3 +181,7 @@ if (emojiBtn && emojiPicker) {
     }
   });
 }
+
+toggleBtn.addEventListener('click', () => {
+  chatty.classList.toggle('active');
+});
