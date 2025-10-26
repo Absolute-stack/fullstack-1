@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#6366f1" rx="6"/>
+  
+  <!-- AI Sparkle/Star effect -->
+  <path d="M16 6 L17.5 11 L22 11 L18.5 14 L20 19 L16 16 L12 19 L13.5 14 L10 11 L14.5 11 Z" 
+        fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Image frame icon -->
+  <rect x="8" y="16" width="16" height="11" rx="1.5" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="11.5" cy="20" r="1.5" fill="#ffffff" opacity="0.8"/>
+  <path d="M8 24 L12 21 L15 23 L20 19 L24 22 L24 27 L8 27 Z" fill="#ffffff" opacity="0.6"/>
+</svg>
