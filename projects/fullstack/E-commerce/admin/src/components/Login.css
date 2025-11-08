@@ -1,0 +1,53 @@
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-wrapper {
+  width: max-content;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.login-wrapper h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-block: 0.5rem;
+}
+
+.form-item p {
+  font-size: 1.3rem;
+  margin-block: 0.5rem;
+}
+
+.form-item input {
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 47px;
+  line-height: 47px;
+  padding-inline: 1rem;
+}
+
+.login-wrapper button {
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  width: 100%;
+  margin-block-start: 1rem;
+  padding-block: 1rem;
+  transition: 0.4s ease;
+}
+
+.login-wrapper button:where(:hover, :focus-visible) {
+  background-color: rgb(255, 241, 241);
+  border: 2px solid black;
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}

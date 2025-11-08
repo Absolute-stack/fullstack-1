@@ -1,0 +1,24 @@
+.admin-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-block-end: 2px solid lightgray;
+}
+
+.admin-nav img {
+  width: 170px;
+}
+
+.admin-nav button {
+  font-size: 1rem;
+  background-color: rgb(112, 107, 107);
+  color: white;
+  padding: 0.7rem 2rem;
+  border-radius: 200px;
+  transition: 0.4s ease;
+}
+.admin-nav button:where(:hover, :focus-visible) {
+  background-color: rgb(112, 107, 107);
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}

@@ -1,0 +1,36 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 270px;
+  border-right: 2px solid lightgray;
+}
+
+.sidebar-nav-container {
+  padding-block-start: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  border: 3px solid lightgrey;
+  padding-block: 0.5rem;
+  padding-inline-end: 0.5rem;
+  margin-inline-start: auto;
+  border-right: none;
+  width: 200px;
+  transition: 0.4s ease;
+}
+
+.sidebar-nav-item:where(:hover, :focus-visible) {
+  color: white;
+  background-color: cadetblue;
+}
+
+.sidebar-nav-item.active {
+  color: chocolate;
+}
