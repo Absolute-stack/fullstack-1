@@ -1,0 +1,83 @@
+.upload-container {
+  width: max-content;
+}
+
+.upload-container-item {
+  height: 250px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.upload-container-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.add-form button {
+  background-color: lightgray;
+  color: black;
+}
+
+.add-form-btn-container {
+  margin-block-start: 1rem;
+}
+
+.add-form-btn-container button {
+  border-radius: 5px;
+  padding: 1rem;
+  transition: 0.25 ease;
+}
+
+.add-form-btn-container button:where(:hover, :focus-visible) {
+  transform: translateY(-2px);
+}
+
+.active {
+  border: 2px solid orange;
+}
+
+.add-form-item {
+  margin-block-start: 1rem;
+}
+
+.add-form input:not([type='checkbox']) {
+  max-width: 848px;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  padding-inline-start: 1rem;
+  cursor: pointer;
+}
+
+.add-form textarea {
+  max-width: 848px;
+  width: 100%;
+  min-height: 80px;
+  padding: 1rem 0 0 1rem;
+}
+
+.checkbox {
+  width: max-content;
+}
+
+.add-product-submit-btn.add-product-submit-btn {
+  margin-block-start: 2rem;
+  padding-block: 0.5rem;
+  background-color: black;
+  color: white;
+  max-width: 848px;
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: 0.5s ease;
+}
+
+.add-product-submit-btn.add-product-submit-btn:where(:hover, :focus-visible) {
+  background-color: rgba(0, 0, 0, 0.653);
+  transform: translateY(-3px);
+}

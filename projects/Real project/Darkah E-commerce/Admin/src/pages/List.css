@@ -1,0 +1,78 @@
+.product-table-header {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 50%, #ffffff 100%);
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 0;
+  color: #333;
+}
+
+.product-table-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  text-align: center;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s ease;
+}
+
+.product-table-row:hover {
+  background: #fafafa;
+}
+
+.product-img-container {
+  height: 100px;
+  width: 100px;
+}
+
+.product-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actions {
+  margin-inline-start: 4rem;
+  width: max-content;
+}
+
+.delete-product-btn {
+  background-color: red;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: 0.4s ease;
+}
+
+.delete-product-btn:where(:hover, :focus-visible) {
+  transform: scale(1.1);
+}
+
+.Edit-product-btn {
+  transition: 0.4s ease;
+}
+
+.Edit-product-btn:where(:hover, :focus-visible) {
+  text-decoration: underline;
+  transform: translateY(-2px);
+}
+
+.edit-form {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-form input,
+.edit-form textarea {
+  display: block;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+}
