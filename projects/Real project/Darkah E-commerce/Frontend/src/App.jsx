@@ -1,35 +1,83 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { Routes, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import './App.css';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Searchbar from './components/SearchBar';
+import Product from './pages/Product';
+import { assets } from './assets/assest.js';
+import Collection from './pages/Collection.jsx';
 function App() {
-  const [count, setCount] = useState(0)
+  const phoneNumber = '233555555555';
 
+  // Only iPhone + Android phones
+  const isPhone = /iPhone|Android.+Mobile/i.test(navigator.userAgent);
+
+  const link = isPhone
+    ? `tel:${phoneNumber}` // 📱 Phone → call
+    : `https://wa.me/${phoneNumber}`; // 💻 Desktop & Tablets → WhatsApp
+
+  const icon = isPhone ? assets.call : assets.whatsapp;
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ToastContainer />
+      <Navbar />
+      <Searchbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/collection" element={<Collection />} />
+        <Route path="/product/:productId" element={<Product />} />
+      </Routes>
+      <footer className="footer">
+        <div className="footer-top flex-sb">
+          <div className="contact">
+            <a href={link} target="_blank" className="flex-sb">
+              <img className="footer-icon" loading="lazy" src={icon} alt="" />
+              <p>Make Enquires</p>
+            </a>
+          </div>
+          <div className="newsletter">
+            <div className="label">
+              <label htmlFor="Number">
+                Subscribe to Get News of New Arrivals and Promotions
+              </label>
+            </div>
+            <div className="grid-newsletter">
+              <form action="#" className="flex">
+                <input
+                  type="number"
+                  id="Number"
+                  placeholder="Enter your number here..."
+                  required
+                />
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className="footer-main">
+          <h3>CLIENT SERVICES</h3>
+          <ul className="footer-item flow">
+            <Link to="/" className="footer-item-link">
+              Home
+            </Link>
+            <Link to="/collections" className="footer-item-link">
+              Collections
+            </Link>
+            <Link to="/contact" className="footer-item-link">
+              Contact
+            </Link>
+          </ul>
+        </div>
+        <div className="footer-bottom">
+          <p>
+            &copy; DARKAH -All RIGHTS RESERVED-MADE BY ABSOLUTE-STACK WITH CARE
+          </p>
+        </div>
+      </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

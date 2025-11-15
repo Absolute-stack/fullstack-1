@@ -1,0 +1,51 @@
+.collection {
+  position: relative;
+  margin-block-start: 5rem;
+}
+
+.title-container {
+  padding-block: 3rem;
+}
+
+.filter-toggle-btn {
+  position: fixed;
+  background-color: black;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 200px;
+  top: 38%;
+  left: 2%;
+  z-index: 999;
+}
+
+.select-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding-inline-end: 3rem;
+}
+
+.select-container select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.select-container select option {
+  cursor: pointer;
+}
+
+.select-container::after {
+  content: '▼';
+  position: absolute;
+  right: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
