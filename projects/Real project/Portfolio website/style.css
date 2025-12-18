@@ -1,0 +1,684 @@
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/roboto-v50-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/roboto-v50-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/roboto-v50-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 800;
+  src: url('./assets/fonts/roboto-v50-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* carattere-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Carattere';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/carattere-v8-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* playfair-display-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/playfair-display-v40-latin-regular.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/playfair-display-v40-latin-500.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/playfair-display-v40-latin-600.woff2')
+    format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+  /* font families */
+  --main-ff: 'Roboto', sans-serif;
+  --sec-ff: 'Playfair Display', serif;
+  --accent-ff: 'Carattere', serif;
+
+  /* colors */
+  --primary-clr: black;
+  --secondary-clr: white;
+  --accent-clr: rgb(220, 226, 231);
+
+  --rotation: 8deg;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+img,
+span,
+input,
+button,
+textarea {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* utility classes */
+
+.container {
+  max-width: 75rem;
+  margin-inline: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-sb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-sa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.gap0 {
+  gap: 0.5rem;
+}
+
+.gap1 {
+  gap: 1rem;
+}
+
+.gap-15 {
+  gap: 1.5rem;
+}
+.gap2 {
+  gap: 2rem;
+}
+.gap3 {
+  gap: 3rem;
+}
+
+.link {
+  font-size: 1rem;
+  color: var(--accent-clr);
+}
+
+.section-title {
+  font-size: 2.8rem;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.btn {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  background-color: rgb(34, 32, 32);
+  text-transform: capitalize;
+  color: white;
+  position: relative;
+  transition: 0.4s ease;
+}
+
+.btn:where(:hover, :focus-visible) {
+  background-color: black;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #303030;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.btn:where(:hover, :focus-visible)::before {
+  animation: echo 0.4s ease-out;
+}
+
+/* general styling */
+
+body {
+  background-color: var(--primary-clr);
+  color: var(--secondary-clr);
+  font-family: var(--main-ff);
+  font-size: 1rem;
+  line-height: 1.5;
+  padding-bottom: 20rem;
+}
+
+/* Header */
+.nav {
+  position: relative;
+  background-color: black;
+  z-index: 9999;
+  padding-block: 2rem;
+}
+
+.nav-left {
+  font-size: 2.4rem;
+  font-family: var(--accent-ff);
+}
+
+.navlink-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.nav button {
+  padding-inline: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  background-color: rgb(34, 32, 32);
+  text-transform: capitalize;
+  color: white;
+  position: relative;
+  transition: 0.4s ease;
+}
+
+.nav button:where(:hover, :focus-visible) {
+  background-color: black;
+}
+
+.nav button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #303030;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.nav button:where(:hover, :focus-visible)::before {
+  animation: echo 0.4s ease-out;
+}
+
+@keyframes echo {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+.nav button span {
+  font-size: 2rem;
+}
+
+/* hero */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  place-items: center;
+  gap: 1rem;
+  margin-block-start: 6rem;
+}
+
+.hero .hero-title {
+  text-transform: capitalize;
+  font-family: var(--sec-ff);
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.hero .hero-subtitle-container {
+  margin-block-start: 1rem;
+}
+
+.hero-shape-1 {
+  position: absolute;
+  top: -70%;
+  left: 0;
+  z-index: 999;
+}
+
+.hero-shape-2 {
+  position: absolute;
+}
+
+.hero-image-container {
+  position: relative;
+  height: 380px;
+  width: 300px;
+  border-radius: 500px;
+  margin-block-end: 2rem;
+  font-family: var(--sec-ff);
+  transition: 0.4s ease;
+  z-index: 9;
+}
+
+.hero-image-container:where(:hover, :focus-visible) {
+  transform: scale(1.1);
+  transform: translateY(-2px);
+}
+
+.hero-image-container img {
+  position: relative;
+  height: 100%;
+  transform: scale(1.5);
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.hero-image-container::before {
+  content: 'Stephen Darkah';
+  position: absolute;
+  right: 30px;
+  bottom: 2px;
+  font-size: 2rem;
+  z-index: 2;
+}
+
+.hero-image-container::after {
+  content: '';
+  position: absolute;
+  border: 1px solid lightgray;
+  width: 420px;
+  height: 480px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 150px;
+  z-index: -1;
+}
+
+.showcase-section {
+  margin-block-start: 6rem;
+  height: 150px;
+  width: 100vw;
+  border: 1px solid var(--accent-clr);
+  border-inline-start: none;
+  border-inline-end: none;
+}
+
+.box {
+  position: relative;
+  width: 280px;
+  height: 150px;
+  border-inline-start: 1px solid var(--accent-clr);
+  border-inline-end: 1px solid var(--accent-clr);
+  padding: 0.1rem;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.box:nth-of-type(1)::before {
+  content: 'Web Design';
+  position: absolute;
+  text-align: center;
+  font-family: var(--sec-ff);
+  font-size: 4rem;
+  line-height: 1;
+  width: 98%;
+  height: 98%;
+  background-color: black;
+  transform: translateY(-40px);
+  opacity: 0;
+  z-index: 2;
+  transition: 0.6s ease;
+}
+
+.box:nth-of-type(2)::before {
+  content: 'Mobile Development';
+  position: absolute;
+  text-align: center;
+  font-family: var(--sec-ff);
+  font-size: 2.8rem;
+  line-height: 1;
+  padding-block-start: 1rem;
+  width: 98%;
+  height: 98%;
+  transform: translateY(-40px);
+  opacity: 0;
+  background-color: black;
+  z-index: 2;
+  transition: 0.6s ease;
+}
+
+.box:nth-of-type(3)::before {
+  content: 'Software Development';
+  position: absolute;
+  text-align: center;
+  font-family: var(--sec-ff);
+  font-size: 2.8rem;
+  line-height: 1;
+  background-color: black;
+  padding-block-start: 1rem;
+  width: 98%;
+  height: 98%;
+  opacity: 0;
+  transform: translateY(-40px);
+  z-index: 2;
+  transition: 0.6s ease;
+}
+
+.box:nth-of-type(4)::before {
+  content: 'Backend Development';
+  position: absolute;
+  text-align: center;
+  font-family: var(--sec-ff);
+  font-size: 2.8rem;
+  line-height: 1;
+  background-color: black;
+  padding-block-start: 1rem;
+  height: 98%;
+  width: 98%;
+  opacity: 0;
+  transform: translateY(-40px);
+  z-index: 2;
+  transition: 0.6s ease;
+}
+
+.box:nth-of-type(1):where(:hover, :focus-visible)::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+.box:nth-of-type(2):where(:hover, :focus-visible)::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+.box:nth-of-type(3):where(:hover, :focus-visible)::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+.box:nth-of-type(4):where(:hover, :focus-visible)::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.box img {
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.table {
+  margin-block-start: 9rem;
+  border: 1px solid var(--secondary-clr);
+}
+
+.table-head {
+  display: flex;
+  align-items: center;
+  height: 67px;
+  border-block-end: 1px solid var(--secondary-clr);
+}
+
+.tab {
+  width: 100%;
+  height: 100%;
+  color: white;
+  border-inline-start: 1px solid var(--secondary-clr);
+  border-inline-end: 1px solid var(--secondary-clr);
+  transition: 0.4s ease;
+}
+
+.tab.active {
+  background-color: rgb(34, 32, 32);
+}
+
+.tab:where(:hover, :focus-visible) {
+  background-color: rgb(34, 32, 32);
+}
+
+/* services */
+
+/* about section */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 4rem;
+  transition: 0.4s ease;
+}
+
+.about-text {
+  margin-block-start: 1rem;
+}
+
+.img-holder {
+  aspect-ratio: 16 /9;
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content-grid {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.social_icon {
+  font-size: 2rem;
+}
+
+/* skillset section */
+.skillset-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4rem;
+  gap: 2rem;
+  display: none;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.skillset-title.section-title {
+  font-size: 2.6rem;
+}
+
+.skillset-text {
+  margin-block: 1rem;
+}
+
+.web {
+  position: relative;
+}
+
+.web::after {
+  content: '';
+  position: absolute;
+  width: 95%;
+  height: 3px;
+  background-color: white;
+  top: calc(100% - 1px);
+  margin-block-start: 0.5rem;
+  border-radius: 5px;
+}
+
+.des {
+  margin-block-start: 2rem;
+  position: relative;
+}
+
+.des::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  background-color: white;
+  top: calc(100% - 1px);
+  margin-block-start: 0.5rem;
+  border-radius: 5px;
+}
+
+/* exhibition section */
+.exhibition-section {
+  opacity: 0;
+  display: none;
+  transition: 0.4s ease;
+}
+
+.exhibition-grid {
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.exhibition-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid var(--secondary-clr);
+  border-radius: 25px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  transition: 0.4s ease;
+}
+
+.exhibition-grid img:where(:hover, :focus-visible) {
+  transform: translateY(-2px);
+  transform: scale(1.1);
+  transform: rotate(-2deg);
+}
+
+.show {
+  display: grid;
+  opacity: 1;
+}
+
+.btn {
+  padding-inline: 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  background-color: rgb(34, 32, 32);
+  text-transform: capitalize;
+  color: white;
+  position: relative;
+  transition: 0.4s ease;
+}
+
+.btn:where(:hover, :focus-visible) {
+  background-color: black;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #303030;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.btn:where(:hover, :focus-visible)::before {
+  animation: echo 0.4s ease-out;
+}
+
+.cta-strip {
+  margin-block-start: 6rem;
+  border-block: 1px solid var(--secondary-clr);
+  padding: 2rem;
+}
+
+.strip-text-wrapper svg {
+  transform: rotate(90deg);
+}
+
+.strip-text-wrapper p {
+  font-size: 2rem;
+}
