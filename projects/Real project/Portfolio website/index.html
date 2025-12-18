@@ -20,18 +20,198 @@
       href="./assets/images/favicon.webp"
       type="image/x-icon"
     />
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css" />
+
+    <!-- Critical CSS Inline -->
+    <style>
+      /* Critical above-the-fold styles */
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+      .container {
+        max-width: 75rem;
+        margin-inline: auto;
+        padding-inline: 1rem;
+      }
+      .flex-sb {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav {
+        position: sticky;
+        top: 0;
+        background-color: #000;
+        z-index: 9999;
+        padding-block: 2rem;
+      }
+      .nav-left {
+        font-size: 2.4rem;
+        font-family: 'Carattere', serif;
+      }
+      .navlink-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+      }
+      .link {
+        list-style: none;
+        font-size: 1rem;
+        color: rgb(220, 226, 231);
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      .nav button {
+        padding-inline: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: rgb(34, 32, 32);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      .hero {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        place-items: center;
+        gap: 1rem;
+        margin-block-start: 6rem;
+        scroll-margin-top: 100px;
+      }
+      .hero .hero-title {
+        text-transform: capitalize;
+        font-family: 'Playfair Display', serif;
+        font-size: 5rem;
+        line-height: 1;
+      }
+      @media (max-width: 768px) {
+        .nav-left {
+          font-size: 2rem;
+        }
+        .navlink-container {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 70%;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.98);
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 2rem;
+          gap: 2rem;
+          transition: 0.4s ease;
+          z-index: 9998;
+        }
+        .navlink-container.active {
+          left: 0;
+        }
+        .nav > a {
+          display: none;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          margin-block-start: 3rem;
+          text-align: center;
+        }
+        .hero .hero-title {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+
+    <!-- Preload critical fonts -->
     <link
       rel="preload"
-      href="/style.css"
-      as="style"
-      onload="this.rel='stylesheet'"
+      href="./assets/fonts/roboto-v50-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/playfair-display-v40-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
-    <noscript>
-      <link rel="stylesheet" href="/style.css" />
-    </noscript>
+    <!-- Load full CSS asynchronously -->
+    <link
+      rel="preload"
+      href="./style.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="./style.css" /></noscript>
+
+    <!-- Fallback for browsers that don't support rel="preload" -->
+    <script>
+      !(function (e) {
+        'use strict';
+        var t = function (t, n, r) {
+          var o,
+            i = e.document,
+            c = i.createElement('link');
+          if (n) o = n;
+          else {
+            var a = (i.body || i.getElementsByTagName('head')[0]).childNodes;
+            o = a[a.length - 1];
+          }
+          var d = i.styleSheets;
+          (c.rel = 'stylesheet'),
+            (c.href = t),
+            (c.media = 'only x'),
+            (function e(t) {
+              if (i.body) return t();
+              setTimeout(function () {
+                e(t);
+              });
+            })(function () {
+              o.parentNode.insertBefore(c, n ? o : o.nextSibling);
+            });
+          var f = function (e) {
+            for (var t = c.href, n = d.length; n--; )
+              if (d[n].href === t) return e();
+            setTimeout(function () {
+              f(e);
+            });
+          };
+          return (
+            c.addEventListener &&
+              c.addEventListener('load', function () {
+                this.media = r || 'all';
+              }),
+            (c.onloadcssdefined = f),
+            f(function () {
+              c.media !== r && (c.media = r);
+            }),
+            c
+          );
+        };
+        'undefined' != typeof exports ? (exports.loadCSS = t) : (e.loadCSS = t);
+      })('undefined' != typeof global ? global : this);
+    </script>
   </head>
   <body>
     <main class="main">
@@ -47,6 +227,11 @@
         <a href="https://wa.me/233551467062" target="_blank">
           <button>Get a Quote <span>&#8594;</span></button>
         </a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
       <section class="hero container" id="hero">
         <div class="hero-content">
@@ -59,32 +244,54 @@
           </div>
         </div>
         <div class="hero-image-container hover-tilt">
-          <img src="./assets/images/hero_image.webp" alt="hero_image" />
+          <img
+            src="./assets/images/hero_image.webp"
+            alt="hero_image"
+            loading="eager"
+          />
         </div>
         <img
           class="hero-shape-1"
           src="./assets/images/hero-shape-1.webp"
           alt="hero_shape_1"
+          loading="lazy"
         />
         <img
           class="hero-shape-2"
           src="./assets/images/hero-shape-2.webp"
           alt="hero_shape_2"
+          loading="lazy"
         />
       </section>
       <section class="showcase-section">
         <div class="conatainer flex-sa">
           <div class="box">
-            <img src="/assets/images/web_design.webp" alt="web_design" />
+            <img
+              src="./assets/images/web_design.webp"
+              alt="web_design"
+              loading="lazy"
+            />
           </div>
           <div class="box">
-            <img src="./assets/images/mobile development.webp" alt="" />
+            <img
+              src="./assets/images/mobile development.webp"
+              alt="mobile development"
+              loading="lazy"
+            />
           </div>
           <div class="box">
-            <img src="./assets/images/web_development.webp" alt="" />
+            <img
+              src="./assets/images/web_development.webp"
+              alt="web development"
+              loading="lazy"
+            />
           </div>
           <div class="box">
-            <img src="./assets/images/Settings.webp" alt="" />
+            <img
+              src="./assets/images/Settings.webp"
+              alt="settings"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -106,6 +313,7 @@
                   <img
                     src="./assets/images/about-image.webp"
                     alt="My work station"
+                    loading="lazy"
                   />
                 </div>
                 <div class="about-content">
@@ -123,7 +331,7 @@
                     <p>Name</p>
                     <p>Phone Number</p>
                     <p>Stephen Kofi Darkah</p>
-                    <a href="tel:+223551467062">0551467062</a>
+                    <a href="tel:+233551467062">0551467062</a>
                     <p>Email Address</p>
                     <p>Social Network</p>
                     <a href="mailto:imdeabsolute@gmail.com"
@@ -134,6 +342,7 @@
                         class="social_icon"
                         src="./assets/images/Whatsapp.svg"
                         alt="whatsapp_icon"
+                        loading="lazy"
                     /></a>
                   </div>
                 </div>
@@ -158,6 +367,7 @@
                   <img
                     src="./assets/images/computer.webp"
                     alt="computer with code displayed"
+                    loading="lazy"
                   />
                 </div>
               </article>
@@ -171,6 +381,7 @@
                     <img
                       src="./assets/images/real estate.webp"
                       alt="real_estate website screenshot"
+                      loading="lazy"
                     />
                   </a>
                   <a
@@ -181,6 +392,7 @@
                     <img
                       src="./assets/images/broken_studio.webp"
                       alt="photography website screenshot"
+                      loading="lazy"
                     />
                   </a>
                   <a
@@ -191,6 +403,7 @@
                     <img
                       src="./assets/images/anon ecommerce.webp"
                       alt="ecommerce website screenshot"
+                      loading="lazy"
                     />
                   </a>
                   <a
@@ -201,6 +414,7 @@
                     <img
                       src="./assets/images/darkah.webp"
                       alt="real_estate website screenshot"
+                      loading="lazy"
                     />
                   </a>
                   <a
@@ -211,6 +425,7 @@
                     <img
                       src="./assets/images/mellergy.webp"
                       alt="mellergy website screenshot"
+                      loading="lazy"
                     />
                   </a>
                   <a
@@ -221,6 +436,7 @@
                     <img
                       src="./assets/images/3d_landing_page.webp"
                       alt="3d website screenshot"
+                      loading="lazy"
                     />
                   </a>
                   <a
@@ -231,6 +447,7 @@
                     <img
                       src="./assets/images/travel.webp"
                       alt="travel website screenshot"
+                      loading="lazy"
                     />
                   </a>
                   <a
@@ -241,6 +458,7 @@
                     <img
                       src="./assets/images/gaming.webp"
                       alt="gaming website screenshot"
+                      loading="lazy"
                     />
                   </a>
                 </div>
@@ -277,6 +495,7 @@
             <img
               src="./assets/images/Cleaning services.webp"
               alt="cleaning_services_website ui"
+              loading="lazy"
             />
             <div class="overlay">
               <a
@@ -304,6 +523,7 @@
             <img
               src="./assets/images/E-commerce UI.webp"
               alt="ecommerce_website_ui"
+              loading="lazy"
             />
             <div class="overlay">
               <a href="https://darkah-frontend.vercel.app/" target="_blank">
@@ -324,7 +544,11 @@
         </div>
         <div class="card">
           <div class="card-img-container">
-            <img src="./assets/images/Thumbnail.webp" alt="saas_landing_page" />
+            <img
+              src="./assets/images/Thumbnail.webp"
+              alt="saas_landing_page"
+              loading="lazy"
+            />
             <div class="overlay">
               <a href="https://esteemstudio.netlify.app/" target="_blank">
                 <button class="btn">Project Details &#8594;</button>
@@ -360,7 +584,11 @@
         </div>
         <div class="right">
           <div class="item flex gap3">
-            <img src="./assets/images/phone_icon.webp" alt="phone_icon" />
+            <img
+              src="./assets/images/phone_icon.webp"
+              alt="phone_icon"
+              loading="lazy"
+            />
             <div class="contact-info">
               <a href="tel:+233551467062" target="_blank"
                 >Call On:+233551467062</a
@@ -371,7 +599,11 @@
             </div>
           </div>
           <div class="item flex gap3">
-            <img src="./assets/images/contact_icon.webp" alt="house_icon" />
+            <img
+              src="./assets/images/contact_icon.webp"
+              alt="house_icon"
+              loading="lazy"
+            />
             <div class="contact-info">
               <a href="tel:+233551467062" target="_blank">Give Me A Call.</a>
               <a href="https://wa.me/233551467062" target="_blank"
@@ -380,7 +612,11 @@
             </div>
           </div>
           <div class="item flex gap3">
-            <img src="./assets/images/email_box.webp" alt="post_box_icon" />
+            <img
+              src="./assets/images/email_box.webp"
+              alt="post_box_icon"
+              loading="lazy"
+            />
             <div class="contact-info">
               <a href="mailto:imdeabsolute@gmail.com" target="_blank"
                 >Send me an email at imdeabsolute@gmail.com</a
@@ -396,6 +632,7 @@
         </p>
       </div>
     </footer>
-    <script src="./index.js"></script>
+    <!-- Load JavaScript after content -->
+    <script defer src="./index.js"></script>
   </body>
 </html>
