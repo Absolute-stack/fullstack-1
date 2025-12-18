@@ -3,41 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stephen Darkah - Web Developer & Product Identity</title>
+    <title>Stephen Darakh-Get your product identity from me</title>
 
+    <!-- meta tags -->
     <meta
       name="title"
-      content="Stephen Darkah - Get your product identity from me"
+      content="Stephen Darkah-Get your product identity from me"
     />
     <meta
       name="description"
-      content="Professional web developer specializing in product identity, responsive design, and modern web applications."
+      content="Stephen Darakh is a professional web developer specializing in product identity, responsive design, and modern web applications."
     />
 
+    <!-- favicon -->
     <link
       rel="shortcut icon"
       href="./assets/images/favicon.webp"
       type="image/x-icon"
     />
 
-    <link
-      rel="preload"
-      href="./assets/fonts/roboto-v50-latin-regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="./assets/fonts/playfair-display-v40-latin-regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="preload" href="./assets/images/hero_image.webp" as="image" />
-
+    <!-- Critical CSS Inline -->
     <style>
-      /* 1. RESET & BASE STYLES */
+      /* Critical above-the-fold styles */
       *,
       *::after,
       *::before {
@@ -52,20 +39,27 @@
         background-color: #000;
         color: #fff;
         font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
         line-height: 1.5;
         overflow-x: hidden;
       }
 
-      /* 2. IMAGE STABILITY (Prevents CLS) */
+      /* Prevent layout shifts from images */
       img {
         max-width: 100%;
         height: auto;
         display: block;
-        /* Reserves space based on width/height attributes before image loads */
-        aspect-ratio: attr(width) / attr(height);
       }
 
-      /* 3. LAYOUT CONTAINERS */
+      /* Reserve space for tab content to prevent CLS */
+      .table-content {
+        min-height: 600px;
+      }
+
+      .services-section {
+        min-height: 700px;
+      }
+
       .container {
         max-width: 75rem;
         margin-inline: auto;
@@ -76,14 +70,12 @@
         align-items: center;
         justify-content: space-between;
       }
-
-      /* 4. NAVIGATION */
       .nav {
         position: sticky;
         top: 0;
         background-color: #000;
         z-index: 9999;
-        padding-block: 1.5rem;
+        padding-block: 2rem;
       }
       .nav-left {
         font-size: 2.4rem;
@@ -91,75 +83,176 @@
       }
       .navlink-container {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: 3rem;
+      }
+      .link {
         list-style: none;
+        font-size: 1rem;
+        color: rgb(220, 226, 231);
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
       }
       .nav button {
-        padding: 0.8rem 1.5rem;
-        background-color: #222;
+        padding-inline: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: rgb(34, 32, 32);
         color: #fff;
         border: none;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
       }
-
-      /* 5. HERO SECTION (DESKTOP FIRST FOR STABILITY) */
       .hero {
+        position: relative;
         display: grid;
         grid-template-columns: 1.3fr 1fr;
-        align-items: center;
-        gap: 2rem;
-        margin-top: 5rem;
-        min-height: 500px; /* Prevents collapse */
+        place-items: center;
+        gap: 1rem;
+        margin-block-start: 6rem;
+        scroll-margin-top: 100px;
       }
       .hero .hero-title {
         text-transform: capitalize;
         font-family: 'Playfair Display', serif;
-        font-size: clamp(2.5rem, 5vw, 5rem);
-        line-height: 1.1;
-      }
-      .hero-image-container {
-        position: relative;
-        width: 300px;
-        height: 380px; /* Matches your image attributes */
-        background: #111; /* Placeholder color */
+        font-size: 5rem;
+        line-height: 1;
       }
 
-      /* 6. MOBILE RESPONSIVENESS */
+      /* Reserve space for hero image container */
+      .hero-image-container {
+        height: 380px;
+        width: 300px;
+        min-height: 380px;
+      }
+
       @media (max-width: 768px) {
+        .nav-left {
+          font-size: 2rem;
+        }
         .navlink-container {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 70%;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.98);
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 2rem;
+          gap: 2rem;
+          transition: 0.4s ease;
+          z-index: 9998;
+        }
+        .navlink-container.active {
+          left: 0;
+        }
+        .nav > a {
           display: none;
-        } /* Simplified for brevity */
+        }
         .hero {
           grid-template-columns: 1fr;
+          margin-block-start: 3rem;
           text-align: center;
-          margin-top: 3rem;
+        }
+        .hero .hero-title {
+          font-size: 2.5rem;
         }
         .hero-image-container {
-          margin: 0 auto;
-          width: 240px;
           height: 300px;
+          width: 240px;
+          min-height: 300px;
         }
-      }
-
-      /* Decoration Shapes (Avoid LCP interference) */
-      .hero-shape-1,
-      .hero-shape-2 {
-        position: absolute;
-        z-index: -1;
-        pointer-events: none;
       }
     </style>
 
+    <!-- Preload critical fonts -->
     <link
-      rel="stylesheet"
+      rel="preload"
+      href="./assets/fonts/roboto-v50-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/playfair-display-v40-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/carattere-v8-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" href="./assets/images/hero_image.webp" as="image" />
+
+    <!-- Load full CSS asynchronously -->
+    <link
+      rel="preload"
       href="./style.css"
-      media="print"
-      onload="this.media='all'"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript><link rel="stylesheet" href="./style.css" /></noscript>
+
+    <!-- Fallback for browsers that don't support rel="preload" -->
+    <script>
+      !(function (e) {
+        'use strict';
+        var t = function (t, n, r) {
+          var o,
+            i = e.document,
+            c = i.createElement('link');
+          if (n) o = n;
+          else {
+            var a = (i.body || i.getElementsByTagName('head')[0]).childNodes;
+            o = a[a.length - 1];
+          }
+          var d = i.styleSheets;
+          (c.rel = 'stylesheet'),
+            (c.href = t),
+            (c.media = 'only x'),
+            (function e(t) {
+              if (i.body) return t();
+              setTimeout(function () {
+                e(t);
+              });
+            })(function () {
+              o.parentNode.insertBefore(c, n ? o : o.nextSibling);
+            });
+          var f = function (e) {
+            for (var t = c.href, n = d.length; n--; )
+              if (d[n].href === t) return e();
+            setTimeout(function () {
+              f(e);
+            });
+          };
+          return (
+            c.addEventListener &&
+              c.addEventListener('load', function () {
+                this.media = r || 'all';
+              }),
+            (c.onloadcssdefined = f),
+            f(function () {
+              c.media !== r && (c.media = r);
+            }),
+            c
+          );
+        };
+        'undefined' != typeof exports ? (exports.loadCSS = t) : (e.loadCSS = t);
+      })('undefined' != typeof global ? global : this);
+    </script>
   </head>
   <body>
     <main class="main">
@@ -175,49 +268,473 @@
         <a href="https://wa.me/233551467062" target="_blank">
           <button>Get a Quote <span>&#8594;</span></button>
         </a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
 
       <section class="hero container" id="hero">
         <div class="hero-content">
-          <h1 class="hero-title">
-            Get your <br />
-            product identity <br />
-            from me.
-          </h1>
-          <div class="hero-subtitle-container" style="margin-top: 1rem">
+          <p class="hero-title">get your</p>
+          <p class="hero-title">product identity</p>
+          <p class="hero-title">from me.</p>
+          <div class="hero-subtitle-container">
             <p class="hero-subtitle">From device to cloud to edge</p>
-            <p class="hero-subtitle">Innovate from anywhere with security.</p>
+            <p class="hero-subtitle">Innovate from anywhere with secure</p>
           </div>
         </div>
-
         <div class="hero-image-container hover-tilt">
           <img
             src="./assets/images/hero_image.webp"
-            alt="Stephen Darkah Portfolio Hero"
+            alt="hero_image"
             width="300"
             height="380"
-            fetchpriority="high"
             loading="eager"
           />
         </div>
-
         <img
           class="hero-shape-1"
           src="./assets/images/hero-shape-1.webp"
-          alt=""
+          alt="hero_shape_1"
           width="559"
           height="232"
           loading="lazy"
         />
+        <img
+          class="hero-shape-2"
+          src="./assets/images/hero-shape-2.webp"
+          alt="hero_shape_2"
+          width="1358"
+          height="497"
+          loading="lazy"
+        />
       </section>
 
-      <section
-        id="services"
-        class="container"
-        style="min-height: 600px; padding-block: 5rem"
-      ></section>
+      <section class="showcase-section">
+        <div class="conatainer flex-sa">
+          <div class="box">
+            <img
+              src="./assets/images/web_design.webp"
+              alt="web_design"
+              width="196"
+              height="105"
+              loading="lazy"
+            />
+          </div>
+          <div class="box">
+            <img
+              src="./assets/images/mobile development.webp"
+              alt="mobile development"
+              width="196"
+              height="105"
+              loading="lazy"
+            />
+          </div>
+          <div class="box">
+            <img
+              src="./assets/images/web_development.webp"
+              alt="web development"
+              width="196"
+              height="105"
+              loading="lazy"
+            />
+          </div>
+          <div class="box">
+            <img
+              src="./assets/images/Settings.webp"
+              alt="settings"
+              width="196"
+              height="105"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="services-section" id="services">
+        <div class="container">
+          <div class="table">
+            <div class="table-head">
+              <button type="button" class="tab about-tab active" id="about">
+                About Me
+              </button>
+              <button type="button" class="tab skillset-tab">Skillset</button>
+              <button type="button" class="tab exhibition-tab" id="review">
+                Exhibition
+              </button>
+            </div>
+            <div class="table-content">
+              <article class="about-section">
+                <div class="img-holder">
+                  <img
+                    src="./assets/images/about-image.webp"
+                    alt="My work station"
+                    width="570"
+                    height="320"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="about-content">
+                  <h2 class="about-title section-title">
+                    A small stage set against the vastness of the universe.
+                  </h2>
+                  <p class="about-text">
+                    A small stage set against the vastness of the universe—amid
+                    vast, turbulent clouds, an encyclopedic galaxy of knowledge,
+                    starlight harvested across ages, the carbon forged in
+                    ancient stars and carried into our apple pies, all within
+                    the boundless realm of galaxies.
+                  </p>
+                  <div class="about-content-grid">
+                    <p>Name</p>
+                    <p>Phone Number</p>
+                    <p>Stephen Kofi Darkah</p>
+                    <a href="tel:+233551467062">0551467062</a>
+                    <p>Email Address</p>
+                    <p>Social Network</p>
+                    <a href="mailto:imdeabsolute@gmail.com"
+                      >imdeabsolute@gmail.com</a
+                    >
+                    <a href="https://wa.me/233551467062">
+                      <img
+                        class="social_icon"
+                        src="./assets/images/Whatsapp.svg"
+                        alt="whatsapp_icon"
+                        width="32"
+                        height="32"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="skillset-section">
+                <div class="skillset-content">
+                  <h2 class="skillset-title section-title">
+                    I develop visual strategies that communicate with purpose."
+                  </h2>
+                  <p class="skillset-text">
+                    A tiny stage set within an immense cosmic arena—surrounded
+                    by vast, turbulent clouds, guided by a galactic encyclopedia
+                    of knowledge, born of star-stuff, gathering ancient
+                    starlight that has traveled across time and space.
+                  </p>
+                  <p class="web flex-sb">
+                    Website Development <span>95%</span>
+                  </p>
+                  <p class="des flex-sb">Design UI & UX <span>85%</span></p>
+                </div>
+                <div class="img-holder">
+                  <img
+                    src="./assets/images/computer.webp"
+                    alt="computer with code displayed"
+                    width="570"
+                    height="320"
+                    loading="lazy"
+                  />
+                </div>
+              </article>
+
+              <article class="exhibition-section">
+                <div class="exhibition-grid">
+                  <a
+                    target="_blank"
+                    href="https://realty223.netlify.app/"
+                    class="img-container"
+                  >
+                    <img
+                      src="./assets/images/real estate.webp"
+                      alt="real_estate website screenshot"
+                      width="280"
+                      height="180"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://esteemstudio.netlify.app/"
+                    class="img-container"
+                  >
+                    <img
+                      src="./assets/images/broken_studio.webp"
+                      alt="photography website screenshot"
+                      width="280"
+                      height="180"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://anon123.netlify.app/"
+                    class="img-container"
+                  >
+                    <img
+                      src="./assets/images/anon ecommerce.webp"
+                      alt="ecommerce website screenshot"
+                      width="280"
+                      height="180"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://darkah-frontend.vercel.app/"
+                    class="img-container"
+                  >
+                    <img
+                      src="./assets/images/darkah.webp"
+                      alt="real_estate website screenshot"
+                      width="280"
+                      height="180"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://www.mellergycleaning.com/"
+                    class="img-container"
+                  >
+                    <img
+                      src="./assets/images/mellergy.webp"
+                      alt="mellergy website screenshot"
+                      width="280"
+                      height="180"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://3d-landing-page1.netlify.app/"
+                    class="img-container"
+                  >
+                    <img
+                      src="./assets/images/3d_landing_page.webp"
+                      alt="3d website screenshot"
+                      width="280"
+                      height="180"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://travel224.netlify.app/"
+                    class="img-container"
+                  >
+                    <img
+                      src="./assets/images/travel.webp"
+                      alt="travel website screenshot"
+                      width="280"
+                      height="180"
+                      loading="lazy"
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href="https://unigine223.netlify.app/"
+                    class="img-container"
+                  >
+                    <img
+                      src="./assets/images/gaming.webp"
+                      alt="gaming website screenshot"
+                      width="280"
+                      height="180"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="cta-strip">
+        <div class="container flex-sb">
+          <div class="strip-text-wrapper flex gap1">
+            <svg
+              width="100px"
+              height="50px"
+              viewBox="0 0 100 50"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0,50 a50,50 0 0,1 100,0 z" fill="#FFFFFF" />
+            </svg>
+            <p>Let's Work Together On Your Next Project</p>
+          </div>
+          <a
+            href="http://wa.me/233551467062"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button class="btn">Hire Me Now <span>&#8594;</span></button>
+          </a>
+        </div>
+      </div>
+
+      <section class="cards-section">
+        <div class="card">
+          <div class="card-img-container">
+            <img
+              src="./assets/images/Cleaning services.webp"
+              alt="cleaning_services_website ui"
+              width="490"
+              height="450"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <a
+                href="https://mellergycleaning.com"
+                target="_blank"
+                class="produ"
+              >
+                <button class="btn">Project Details &#8594;</button>
+              </a>
+            </div>
+          </div>
+          <div class="card-content">
+            <p>Web, Product</p>
+            <a
+              href="https://mellergycleaning.com"
+              class="product-link"
+              target="_blank"
+            >
+              <p>Front End Development & UI Engineering</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-container">
+            <img
+              src="./assets/images/E-commerce UI.webp"
+              alt="ecommerce_website_ui"
+              width="490"
+              height="450"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <a href="https://darkah-frontend.vercel.app/" target="_blank">
+                <button class="btn">Project Details &#8594;</button>
+              </a>
+            </div>
+          </div>
+          <div class="card-content">
+            <p>Web, Product</p>
+            <a
+              href="https://darkah-frontend.vercel.app/"
+              class="product-link"
+              target="_blank"
+            >
+              <p>UI Design, Wireframing & Prototyping</p>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-container">
+            <img
+              src="./assets/images/Thumbnail.webp"
+              alt="saas_landing_page"
+              width="490"
+              height="450"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <a href="https://esteemstudio.netlify.app/" target="_blank">
+                <button class="btn">Project Details &#8594;</button>
+              </a>
+            </div>
+          </div>
+          <div class="card-content">
+            <p>Web, Product</p>
+            <a
+              href="https://esteemstudio.netlify.app/"
+              class="product-link"
+              target="_blank"
+            >
+              <p>Back End Development & API Architecture</p>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <script src="./script.js" defer></script>
+    <footer class="footer" id="contact">
+      <p class="footer-title">Get In Touch</p>
+      <div class="footer-grid">
+        <div class="google-maps-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.3002617319785!2d-1.5935808252447694!3d6.733174893262989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb952851dca2cd%3A0x2eab81b32eb2adfb!2sBuokrom%20Airport%20Estate%20A%20Line!5e0!3m2!1sen!2sgh!4v1766077927632!5m2!1sen!2sgh"
+            width="800"
+            height="600"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Location map"
+          ></iframe>
+        </div>
+        <div class="right">
+          <div class="item flex gap3">
+            <img
+              src="./assets/images/phone_icon.webp"
+              alt="phone_icon"
+              width="50"
+              height="50"
+              loading="lazy"
+            />
+            <div class="contact-info">
+              <a href="tel:+233551467062" target="_blank"
+                >Call On:+233551467062</a
+              >
+              <a href="https://wa.me/233551467062" target="_blank"
+                >Send Me a Message on Whatsapp</a
+              >
+            </div>
+          </div>
+          <div class="item flex gap3">
+            <img
+              src="./assets/images/contact_icon.webp"
+              alt="house_icon"
+              width="50"
+              height="50"
+              loading="lazy"
+            />
+            <div class="contact-info">
+              <a href="tel:+233551467062" target="_blank">Give Me A Call.</a>
+              <a href="https://wa.me/233551467062" target="_blank"
+                >Buokrom Estate A-line</a
+              >
+            </div>
+          </div>
+          <div class="item flex gap3">
+            <img
+              src="./assets/images/email_box.webp"
+              alt="post_box_icon"
+              width="50"
+              height="50"
+              loading="lazy"
+            />
+            <div class="contact-info">
+              <a href="mailto:imdeabsolute@gmail.com" target="_blank"
+                >Send me an email at imdeabsolute@gmail.com</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom-text">
+          &copy; Copyright & Design made by
+          <a href="https://wa.me/233551467062">Absolute-stack with care.</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Load JavaScript after content -->
+    <script defer src="./index.js"></script>
   </body>
 </html>
