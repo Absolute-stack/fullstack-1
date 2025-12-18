@@ -227,6 +227,7 @@ button {
 /* general styling */
 
 body {
+  scroll-behavior: smooth;
   background-color: var(--primary-clr);
   color: var(--secondary-clr);
   font-family: var(--main-ff);
@@ -837,34 +838,6 @@ body {
   text-decoration: underline;
 }
 
-/* Mobile menu toggle */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  z-index: 10000;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  transition: 0.3s ease;
-}
-
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
 /* RESPONSIVE DESIGN */
 
 /* Tablets and below */
@@ -914,12 +887,14 @@ body {
 /* Mobile devices */
 @media (max-width: 768px) {
   .container {
-    padding-inline: 1.5rem;
+    padding-inline: 1rem;
   }
 
   /* Navigation */
   .nav {
-    padding-block: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .nav-left {
@@ -927,11 +902,15 @@ body {
   }
 
   .nav button {
-    display: none;
+    padding-inline: 0.8rem;
+    font-size: 0.8rem;
   }
 
-  .menu-toggle {
+  .nav button span {
     display: flex;
+    align-self: flex-start;
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .navlink-container {

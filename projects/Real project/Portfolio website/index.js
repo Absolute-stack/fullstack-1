@@ -42,38 +42,6 @@ allServicesWrapper.addEventListener('click', (e) => {
   }
 });
 
-// Mobile menu functionality
-const menuToggle = document.querySelector('.menu-toggle');
-const navlinkContainer = document.querySelector('.navlink-container');
-const navLinks = document.querySelectorAll('.navlink-container .link a');
-
-// Toggle mobile menu
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  navlinkContainer.classList.toggle('active');
-  document.body.style.overflow = navlinkContainer.classList.contains('active')
-    ? 'hidden'
-    : 'auto';
-});
-
-// Close mobile menu when a link is clicked
-navLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    menuToggle.classList.remove('active');
-    navlinkContainer.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  });
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!menuToggle.contains(e.target) && !navlinkContainer.contains(e.target)) {
-    menuToggle.classList.remove('active');
-    navlinkContainer.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-});
-
 // Smooth scroll behavior (already handled by CSS, but adding for older browsers)
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', function (e) {

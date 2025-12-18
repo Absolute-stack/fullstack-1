@@ -22,6 +22,16 @@
     />
     <!-- CSS Link -->
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="preload"
+      href="/style.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+
+    <noscript>
+      <link rel="stylesheet" href="/style.css" />
+    </noscript>
   </head>
   <body>
     <main class="main">
@@ -37,11 +47,6 @@
         <a href="https://wa.me/233551467062" target="_blank">
           <button>Get a Quote <span>&#8594;</span></button>
         </a>
-        <div class="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </nav>
       <section class="hero container" id="hero">
         <div class="hero-content">
