@@ -34,7 +34,14 @@
           <li class="link"><a href="#review">Reviews</a></li>
           <li class="link"><a href="#contact">Contact</a></li>
         </ul>
-        <button>Get a Quote <span>&#8594;</span></button>
+        <a href="https://wa.me/233551467062" target="_blank">
+          <button>Get a Quote <span>&#8594;</span></button>
+        </a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
       <section class="hero container" id="hero">
         <div class="hero-content">
@@ -76,13 +83,15 @@
           </div>
         </div>
       </section>
-      <section class="services-section">
+      <section class="services-section" id="services">
         <div class="container">
           <div class="table">
             <div class="table-head">
-              <button type="button" class="tab about-tab">About Me</button>
+              <button type="button" class="tab about-tab" id="about">
+                About Me
+              </button>
               <button type="button" class="tab skillset-tab">Skillset</button>
-              <button type="button" class="tab exhibition-tab">
+              <button type="button" class="tab exhibition-tab" id="review">
                 Exhibition
               </button>
             </div>
@@ -127,7 +136,7 @@
               <article class="skillset-section">
                 <div class="skillset-content">
                   <h2 class="skillset-title section-title">
-                    I develop visual strategies that communicate with purpose.”
+                    I develop visual strategies that communicate with purpose."
                   </h2>
                   <p class="skillset-text">
                     A tiny stage set within an immense cosmic arena—surrounded
@@ -257,7 +266,131 @@
           </a>
         </div>
       </div>
+      <section class="cards-section">
+        <div class="card">
+          <div class="card-img-container">
+            <img
+              src="./assets/images/Cleaning services.webp"
+              alt="cleaning_services_website ui"
+            />
+            <div class="overlay">
+              <a
+                href="https://mellergycleaning.com"
+                target="_blank"
+                class="produ"
+              >
+                <button class="btn">Project Details &#8594;</button>
+              </a>
+            </div>
+          </div>
+          <div class="card-content">
+            <p>Web, Product</p>
+            <a
+              href="https://mellergycleaning.com"
+              class="product-link"
+              target="_blank"
+            >
+              <p>Front End Development & UI Engineering</p>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-container">
+            <img
+              src="./assets/images/E-commerce UI.webp"
+              alt="ecommerce_website_ui"
+            />
+            <div class="overlay">
+              <a href="https://darkah-frontend.vercel.app/" target="_blank">
+                <button class="btn">Project Details &#8594;</button>
+              </a>
+            </div>
+          </div>
+          <div class="card-content">
+            <p>Web, Product</p>
+            <a
+              href="https://darkah-frontend.vercel.app/"
+              class="product-link"
+              target="_blank"
+            >
+              <p>UI Design, Wireframing & Prototyping</p>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-container">
+            <img src="./assets/images/Thumbnail.webp" alt="saas_landing_page" />
+            <div class="overlay">
+              <a href="https://esteemstudio.netlify.app/" target="_blank">
+                <button class="btn">Project Details &#8594;</button>
+              </a>
+            </div>
+          </div>
+          <div class="card-content">
+            <p>Web, Product</p>
+            <a
+              href="https://esteemstudio.netlify.app/"
+              class="product-link"
+              target="_blank"
+            >
+              <p>Back End Development & API Architecture</p>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
+    <footer class="footer" id="contact">
+      <p class="footer-title">Get In Touch</p>
+      <div class="footer-grid">
+        <div class="google-maps-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.3002617319785!2d-1.5935808252447694!3d6.733174893262989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb952851dca2cd%3A0x2eab81b32eb2adfb!2sBuokrom%20Airport%20Estate%20A%20Line!5e0!3m2!1sen!2sgh!4v1766077927632!5m2!1sen!2sgh"
+            width="800"
+            height="600"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="right">
+          <div class="item flex gap3">
+            <img src="./assets/images/phone_icon.webp" alt="phone_icon" />
+            <div class="contact-info">
+              <a href="tel:+233551467062" target="_blank"
+                >Call On:+233551467062</a
+              >
+              <a href="https://wa.me/233551467062" target="_blank"
+                >Send Me a Message on Whatsapp</a
+              >
+            </div>
+          </div>
+          <div class="item flex gap3">
+            <img src="./assets/images/contact_icon.webp" alt="house_icon" />
+            <div class="contact-info">
+              <a href="tel:+233551467062" target="_blank">Give Me A Call.</a>
+              <a href="https://wa.me/233551467062" target="_blank"
+                >Buokrom Estate A-line</a
+              >
+            </div>
+          </div>
+          <div class="item flex gap3">
+            <img src="./assets/images/email_box.webp" alt="post_box_icon" />
+            <div class="contact-info">
+              <a href="mailto:imdeabsolute@gmail.com" target="_blank"
+                >Send me an email at imdeabsolute@gmail.com</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom-text">
+          &copy; Copyright & Design made by
+          <a href="https://wa.me/233551467062">Absolute-stack with care.</a>
+        </p>
+      </div>
+    </footer>
     <script src="./index.js"></script>
   </body>
 </html>
