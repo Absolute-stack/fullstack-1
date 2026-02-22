@@ -1,0 +1,23 @@
+.counter-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.counter-container span {
+  font-size: 3rem;
+}
+
+.counter-container button {
+  font-size: 1.5rem;
+  padding: 0.3rem 2rem;
+  border-radius: 200px;
+  transition: 0.3s ease;
+}
+
+.counter-container button:where(:hover, :focus-visible) {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
